@@ -29,6 +29,7 @@ module.exports = function(app){
 	})/*app.post*/
 
 /*check that this query will be used only when you click the devour it button*/
+/*might need to add another app.put request*/
 	app.put('/', function(request, response){
 		connection.query('UPDATE burgers SET devoured = ? WHERE id = ?',
 			[true, request.body.id], function(err, data){
