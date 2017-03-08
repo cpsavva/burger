@@ -1,6 +1,19 @@
-const burgerModel = require('../models/burgers.js');
+const burgerModel = require('../models/burger.js');
 const express = require('express');
-const app = express();
-const port = process.env.PORT || 3000;
+const path = require('path');
+
+/*Routes*/
+
+
+module.exports = function(app){
+  app.get("/", function(request, response) {
+
+    response.render('index');
+
+  });
+
+
+
+};/*exports*/
 
 

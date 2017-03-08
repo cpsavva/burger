@@ -1,0 +1,21 @@
+<ul>
+  {{#each burgers}}
+    <li>
+      <p>
+        {{this.id}}. {{this.burger_name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">EAT ME!</button>
+        </form>
+      </p>
+    </li>
+  {{/each}}
+</ul>
+
+
+<h2>What kind of burger do you want to eat?</h2>
+<form method="POST" action="/" class="button-size">
+  <textarea type="text" name="burger_name" placeholder="Enter your burger here"></textarea>
+  <button type="submit">Add to Queue</button>
+</form>
