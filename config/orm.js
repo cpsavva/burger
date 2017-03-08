@@ -1,4 +1,4 @@
-const connection = require('connection.js');
+const connection = require('./connection.js');
 
 module.exports = function(app){
 
@@ -11,9 +11,9 @@ module.exports = function(app){
 
 			/*test*/
 			console.log('results from table = ' + data);
-			response.send(data);
+			// response.send(data);
 
-			// response.render('index', {burgers: data});
+			response.render('index', {burgers: data});
 		}); /*query*/
 
 	});/*app.get*/
