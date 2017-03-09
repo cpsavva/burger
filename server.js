@@ -22,8 +22,8 @@ app.engine('handlebars', exhandle({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 /*require routes*/
-require('./config/connection.js');
-require('./config/orm.js')(app);
+require('./config/connection.js')(app);
+require('./config/orm.js');
 require('./controllers/burgers_controllers.js')(app);
 
 // /*connect to mysql */

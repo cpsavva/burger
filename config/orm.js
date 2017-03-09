@@ -1,43 +1,33 @@
 const connection = require('./connection.js');
 
-module.exports = function(app){
+const table = 'burgers'
 
+const orm = {
 
-/* queries */
-	app.get('/api/burgers', function(request, response){
+	selectAll: function(response){
 
-		connection.query('SELECT * FROM burgers;', function(err, data){
-			if (err) throw err;
+		connection.query('SELECT * FROM' + table, function(err, result){
+			response(result);
+		});/*query*/
 
-			/*test*/
-			console.log('results from table = ' + data);
-			// response.send(data);
+	},/*selectAll*/
 
-			response.render('index', {burgers: data});
-		}); /*query*/
-
-	});/*app.get*/
-
-
-	app.post('/', function(request, response){
+	insertOne: function(request, response){
 		connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?, false)', 
-			[request.body.burger_name], function(err, data){
-				if (err) throw err;
-
-				data.redirect('/');
+			[request.burger_name], function(err, data){
+				response(data);
 		}); /*query*/
-	})/*app.post*/
+	},/*insertOne*/
 
-/*check that this query will be used only when you click the devour it button*/
-/*might need to add another app.put request*/
-	app.put('/', function(request, response){
+	updateOne: function(request, response){
 		connection.query('UPDATE burgers SET devoured = ? WHERE id = ?',
-			[true, request.body.id], function(err, data){
-				if(err) throw err;
-
-				response.redirect('/');
+			[true, request.id], function(err, data){
+				response(data);
 			})/*query*/
+	},/*updateOne*/
 
-	})/*app.put*/
 
-}/*exports*/
+}/*orm*/
+
+
+module.exports = orm;
