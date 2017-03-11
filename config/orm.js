@@ -4,28 +4,29 @@ const table = 'burgers'
 
 const orm = {
 
-	selectAll: function(response){
+	selectAll: function(table, callback){
+		connection.query('SELECT * FROM ' + table + ';', 
+			function(err, result){
+				if(err) throw err;
+				callback(result);
+			})
+	},
 
-		connection.query('SELECT * FROM' + table, function(err, result){
-			response(result);
-		});/*query*/
+	updateOne: function(table, condition, callback){
+		connection.query('UPDATE ' + table + ' SET devoured=true WHERE id=?;', [condition],
+			function(err, result){
+				if(err) throw err;
+				callback(result);
+			})
+	},
 
-	},/*selectAll*/
-
-	insertOne: function(request, response){
-		connection.query('INSERT INTO burgers (burger_name, devoured) VALUES (?, false)', 
-			[request.burger_name], function(err, data){
-				response(data);
-		}); /*query*/
-	},/*insertOne*/
-
-	updateOne: function(request, response){
-		connection.query('UPDATE burgers SET devoured = ? WHERE id = ?',
-			[true, request.id], function(err, data){
-				response(data);
-			})/*query*/
-	},/*updateOne*/
-
+	insertOne: function(table, value, callback){
+		connection.query('INSERT INTO '+ table+ '(burger_name, devoured) VALUES (?, false)',
+		[value], function(err, result){
+			if(err) throw err;
+			callback(result);
+		})
+	}
 
 }/*orm*/
 

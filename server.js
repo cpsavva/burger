@@ -22,18 +22,8 @@ app.engine('handlebars', exhandle({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 /*require routes*/
-require('./config/connection.js')(app);
-require('./config/orm.js');
-require('./controllers/burgers_controllers.js')(app);
-
-// /*connect to mysql */
-// mysqlconnect.connect(function(err) {
-//   if (err) throw err;
-
-//   console.log("connected as id " + mysqlconnect.threadId);
-
-// });
-
+const controllers = require('./controllers/burgers_controllers.js')
+app.use('/', controllers);
 
 
 app.listen(port, function(){
