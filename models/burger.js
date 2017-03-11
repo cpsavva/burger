@@ -1,39 +1,22 @@
 const orm = require('../config/orm.js');
 
 
-module.exports = function(app){
+var burgerModel = {
+	selectAll : function(callback){
+		orm.selectAll('burgers', function(response){
+			callback(response);
+		})
+	},
 
-/* queries */
-	app.get('/api/burgers', function(request, response){
+	updateOne : function(id, callback){
+		orm.updateOne('burgers', id, callback);
+	},
 
-			orm.selectAll(function(data){
-				response.json(data);
-				console.log('am i getting anything?')
+	insertOne : function(value, callback){
+		orm.insertOne('burgers', value, callback);
+	}
 
-			
-
-			response.render('index', {burgers: data});
-});
-	});/*app.get*/
+}
 
 
-// 	app.post('/', function(request, response){
-		
-
-// 				data.redirect('/');
-		
-// 	})/*app.post*/
-
-// /*check that this query will be used only when you click the devour it button*/
-// /*might need to add another app.put request*/
-// 	app.put('/', function(request, response){
-// 		connection.query('UPDATE burgers SET devoured = ? WHERE id = ?',
-// 			[true, request.body.id], function(err, data){
-// 				if(err) throw err;
-
-// 				response.redirect('/');
-// 			})/*query*/
-
-	// })app.put
-
-}/*exports*/
+module.exports = burgerModel;
