@@ -1,0 +1,23 @@
+body {
+	background-image: url('../images/wood.jpg');
+	font-family: 'Pangolin', cursive;
+	color: white;
+}
+
+.container{
+	background-image: url('../images/chalkboard.jpg');
+}
+
+.eatMe{
+	background-color: white;
+	color: black;
+	font-family: 'Shadows Into Light', cursive;
+
+}
+
+.queue{
+	background-color: black;
+	color: white;
+	font-family: 'Shadows Into Light', cursive;
+
+}
