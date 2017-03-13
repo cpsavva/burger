@@ -4,20 +4,51 @@ body {
 	color: white;
 }
 
-.container{
+p, label {
+	font-size: 20px;
+}
+
+.panel, .well{
 	background-image: url('../images/chalkboard.jpg');
 }
 
-.eatMe{
-	background-color: white;
-	color: black;
-	font-family: 'Shadows Into Light', cursive;
 
-}
-
-.queue{
-	background-color: black;
+button {
+	background-image: url('../images/chalkboard.jpg');
 	color: white;
 	font-family: 'Shadows Into Light', cursive;
+}
 
+.eatMe{
+	float: right;
+}
+
+hr.style13 {
+	height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+hr.style11 {
+	height: 6px;
+	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+    color: white;
+}
+
+.eatenBurger{
+	text-decoration: line-through;
+}
+
+#myModal {
+	background-image: url('../images/wood.jpg');
+}
+
+.modal-content {
+	background-image: url('../images/chalkboard.jpg');
+	
+}
+
+textarea {
+	background-color: rgba(0,0,0, .5);
+	color: grey;
 }
