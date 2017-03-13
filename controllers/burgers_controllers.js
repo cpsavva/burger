@@ -16,8 +16,7 @@ router.put('/burgers/update', function(request, response){
 	burger.updateOne(request.body.id, function(result){
 		console.log(result);
 
-
-		response.redirect('/');
+		// response.redirect('/');
 	})
 });
 
